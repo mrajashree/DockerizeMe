@@ -1,3 +1,3 @@
 <h1> DockerizeMe
 
-Automatic creation of Docker image from Code repository
+Automatic creation of Docker image from Code repository.
