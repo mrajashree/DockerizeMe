@@ -1,0 +1,23 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "DockerizeMe",
+  "main": "detect_technology.js",
+  "dependencies": {
+    "git-url-parse": "^4.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alt-code/DockerizeMe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alt-code/DockerizeMe/issues"
+  },
+  "homepage": "https://github.com/alt-code/DockerizeMe#readme"
+}
