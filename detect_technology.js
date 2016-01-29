@@ -4,9 +4,6 @@ var exec = require('child_process').exec;
 var spawn = require('child_process').spawn;
 var child;
 
-/*var name_github_repo = GitUrlParse("git@github.com:mrajashree/linguist.git").name;
-git@github.com:mrajashree/App.git
-console.log("Name of github repo : ", name_github_repo);*/
 var url_github_repo = process.argv[2];
 var name_github_repo = GitUrlParse(url_github_repo).name;
 
