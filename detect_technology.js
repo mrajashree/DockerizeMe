@@ -1,5 +1,4 @@
 var GitUrlParse = require("git-url-parse"); //sudo npm i --save git-url-parse
-var Git = require("nodegit"); //sudo npm install nodegit --save
 var exec = require('child_process').exec;
 var child;
 

@@ -4,8 +4,7 @@
   "description": "DockerizeMe",
   "main": "detect_technology.js",
   "dependencies": {
-    "git-url-parse": "^4.2.1",
-    "nodegit": "^0.9.0"
+    "git-url-parse": "^4.2.1"
   },
   "devDependencies": {},
   "scripts": {
