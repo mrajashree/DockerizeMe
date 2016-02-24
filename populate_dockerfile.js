@@ -22,7 +22,7 @@ builder.baseinstallcommands = {
 	"node.js":"RUN curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -\nRUN sudo apt-get install -y nodejs",
 	"python":"RUN sudo apt-get install -y python2.7\nRUN sudo apt-get install -y python-pip"
 }
-0
+
 builder.packageinstallcommands = {
 	"npm":"RUN sudo apt-get install -y npm\nRUN npm install"
 }
