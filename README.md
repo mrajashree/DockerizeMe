@@ -36,4 +36,5 @@ cd repo
 sudo docker build -t img_dockerizeme .
 sudo docker run -p 8080:8080 -td --name npm_updates_container img_dockerizeme
 sudo docker exec -it npm_updates_container bash
+ln -s /usr/bin/nodejs /usr/bin/node
 ```
