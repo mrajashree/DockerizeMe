@@ -16,17 +16,16 @@ var py =
 
   detect: function()
   {
-    var command = 'pylinguist '+name_github_repo;
-    exec(command, function(err,out,code)
-    {
-      console.log("Technology of the repo is: ",out.split('\n')[0].split(' ')[1]);
-      //console.log("Technology of the repo is: ",out);
+     var command = 'pylinguist '+name_github_repo;
+     exec(command, function(err,out,code)
+     {
+      console.log(name_github_repo+" "+out.split('\n')[0].split(' ')[1]);
       process.exit();
-    });
+     });
     
   }
 }
 
 py.clone();
-console.log("Name of github repo : ", name_github_repo);
+
 
