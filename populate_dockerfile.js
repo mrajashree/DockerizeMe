@@ -33,6 +33,10 @@ builder.packageinstallcommands = {
 	"pip_requirements":"COPY . /src\nRUN cd /src;pip install -r requirements.txt\n"
 }
 
+builder.secondarypackageinstallcommands = {
+	"Python":"RUN sudo apt-get install -y python2.7\nRUN sudo apt-get install -y python-pip\nRUN cd /src;pip install -r requirements.txt\n"
+}
+
 
 fs.readFile('op.txt', 'utf8',function (err, data) {
   if (err) throw err;
@@ -48,12 +52,35 @@ fs.readFile('op.txt', 'utf8',function (err, data) {
 function populate(path_repo,technology) {
 	console.log(builder.baseinstallcommands[builder.basedependencies[technology]]);	//command(s) to install basedependency
 
-	fs.exists('./'+path_repo+"/"+builder.packagedependencies[technology], function(exists) {
+	fs.exists('./'+path_repo+'/'+builder.packagedependencies[technology], function(exists) {	// in case of JS, package.json
 		if(exists) {
 			//console.log("Requirements met");
 			if(builder.packagemanager[technology])
 			{
+				if(technology=='JavaScript')
+				{
+					var pjson = require('./'+path_repo+'/package.json');
+					// if(pjson.hasOwnProperty('engineStrict'))
+					// 	console.log('yes')
+					// else
+					// 	console.log('no')
+				}
 				console.log(builder.packageinstallcommands[builder.packagemanager[technology]])
+				for(language in builder.basedependencies)
+				{
+					if(language!=technology)
+					{
+						// console.log('./'+path_repo+'/'+builder.packagedependencies[language])
+						fs.exists('./'+path_repo+'/'+builder.packagedependencies[language], function(exists) {
+							if(exists) {
+								console.log(builder.secondarypackageinstallcommands[language])	
+							}
+						});
+						// {
+						// 	console.log(builder.packageinstallcommands[builder.packagemanager[language]])
+						// }
+					}
+				}
 			} 
 		}
 		else
