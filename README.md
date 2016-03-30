@@ -1,5 +1,7 @@
 <h1> DockerizeMe </h1>
 
+http://imgs.xkcd.com/comics/universal_install_script.png 
+
 Automatic creation of Docker image from Code repository.
 
 1. <b>Predict technology of the repository</b></br>
