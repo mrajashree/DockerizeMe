@@ -47,3 +47,7 @@ We see three possible directions for how to improve the tools
 2. Create smart profiles of different types of applications. If we can create a common python/ML container that is able to run most machine learning or text processing applications, then we can focus on how to reduce and optimize the dependencies further.
 
 3. Create a selenium-like bot that can process README.md and install instructions and see if we can create installers from human instructions.
+   
+    > Everyone: please start doing installation-driven development. Not test-driven, not feature-driven: installation-driven. [1/2]
+    > Best possible use of AI: a program that simulates a naive user trying to install your software. "Reads" docs, follows steps... [2/2]
+    -- https://twitter.com/gvwilson/status/710950558207774722
