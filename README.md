@@ -38,3 +38,12 @@ sudo docker run -p 8080:8080 -td --name npm_updates_container img_dockerizeme
 sudo docker exec -it npm_updates_container bash
 ln -s /usr/bin/nodejs /usr/bin/node
 ```
+
+### Future Research Directions.
+We see three possible directions for how to improve the tools
+
+1. Create a smart dictionary of dependencies. Be able to scan import statements of code and detect which high-level libraries that need to be installed.
+
+2. Create smart profiles of different types of applications. If we can create a common python/ML container that is able to run most machine learning or text processing applications, then we can focus on how to reduce and optimize the dependencies further.
+
+3. Create a selenium-like bot that can process README.md and install instructions and see if we can create installers from human instructions.
