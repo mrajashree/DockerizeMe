@@ -8,7 +8,11 @@ RUN sudo apt-get install -y npm
 COPY . /src
 RUN cd /src;sudo npm install
 
+RUN sudo apt-get install -y libicu-dev
+RUN sudo apt-get install -y libmagic-dev
 RUN sudo apt-get install -y python2.7
+RUN sudo apt-get install -y python-dev
 RUN sudo apt-get install -y python-pip
+RUN sudo apt-get install -y python-pygments
+RUN sudo apt-get install -y git
 RUN cd /src;pip install -r requirements.txt
-
