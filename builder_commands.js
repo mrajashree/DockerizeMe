@@ -35,9 +35,16 @@ builder.packageinstallcommands = {
 	"pip_requirements":"COPY . /src\nRUN cd /src;pip install -r requirements.txt\n"
 }
 
-builder.secondarypackageinstallcommands = {
-	"Python":"RUN sudo apt-get install -y python2.7\nRUN sudo apt-get install -y python-pip\nRUN cd /src;pip install -r requirements.txt\n"
+builder.secondaryinstallcommands = {
+	"Python":"RUN sudo apt-get install -y python2.7\nRUN sudo apt-get install -y python-dev\nRUN sudo apt-get install -y python-pip\n"
 }
+
+builder.secondarypackageinstallcommands = {
+	"npm":"RUN cd /src;sudo npm install\n",
+	"maven":"RUN wget http://www.eng.lsu.edu/mirrors/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.zip\nRUN unzip apache-maven-3.2.3-bin.zip\n",
+	"pip_requirements":"RUN cd /src;pip install -r requirements.txt\n"
+}
+
 exports.builder = builder;
 
 
