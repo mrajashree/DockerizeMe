@@ -6,10 +6,10 @@ As companies are migrating from on-premise software to hosted software applicati
 Virtualization using cloud providers such as AWS is one approach to hosting software effectively. One other approach that has gained a lot more popularity is using docker containers. Docker containers are light-weight. Docker allows services to be isolated in a standalone container which can be provisioned and run with less overhead than full virtual machine images, leading to higher resource utilization. Porting traditional applications to run within docker containers is not always so easy. Docker containers often require that the applications remain stateless. This means if two services needed to interact via the file system, then some degree of porting must occur.
 
 <h1> Motivation </h1>
-DockerizeMe attempts to make this porting process easier. We support
-1. Porting dependencies into Docker image.
-2. A dictionary-building approach to keep track of all platform dependecies encountered so far
-3. Single command to handle Dockerfile creation
+DockerizeMe attempts to make this porting process easier. We support</br>
+1. Porting dependencies into Docker image.</br>
+2. A dictionary-building approach to keep track of all platform dependecies encountered so far</br>
+3. Single command to handle Dockerfile creation</br>
 
 <h1> Process </h1>
 DockerizeMe starts off by accepting the URL of a github repository as an argument. It clones this repo and detects the technology used by this repo. We have used Linguist, a python variant of the tool used by Github for doing so. The language which is used the most is then selected as the base or primary language. </br>
