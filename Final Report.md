@@ -12,5 +12,5 @@ DockerizeMe attempts to make this porting process easier. We support
 3. Single command to handle Dockerfile creation
 
 <h1> Process </h1>
-DockerizeMe starts off by accepting the URL of a github repository as an argument. It clones this repo and detects the technology used by this repo. We have used Linguist, a python variant of the tool used by Github for doing so. The language which is used the most is then selected as the base or primary language. 
+DockerizeMe starts off by accepting the URL of a github repository as an argument. It clones this repo and detects the technology used by this repo. We have used Linguist, a python variant of the tool used by Github for doing so. The language which is used the most is then selected as the base or primary language. </br>
 DockerizeMe then begins to populate the Dockerfile using the installation commands for the base language detected in the first step. It then checks if the repo contains the proper package management documentaion, meaning package.json in case of a JavaScript repo, or requirements.txt in case of a Python repo. If it exists then it populates the dockerfile with the commands for installing the package management tools if required, and then with the commands to actually install these dependencies.
