@@ -1,13 +1,26 @@
 from modulefinder import ModuleFinder
+import glob
+import types
 
 finder = ModuleFinder()
-finder.run_script('blob.py')
+files = glob.glob('*.py')
 
-print 'Loaded modules:'
-for name, mod in finder.modules.iteritems():
-    print '%s: ' % name,
-    print ','.join(mod.globalnames.keys()[:3])
+# for file in files:
+# 	finder.run_script(file)
+finder.run_script('check_dependency.py')
 
-print '-'*50
-print 'Modules not imported:'
-print '\n'.join(finder.badmodules.iterkeys())
+def imports():
+    for name, val in globals().items():
+        if isinstance(val, types.ModuleType):
+            print name
+
+def main():
+	imports()
+
+if __name__ == '__main__':
+	main()
+
+
+# print '-'*50
+# print 'Modules not imported:'
+# print '\n'.join(finder.badmodules.iterkeys())
