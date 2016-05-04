@@ -20,6 +20,7 @@ var py =
      exec(command, function(err,out,code)
      {
       console.log(name_github_repo+" "+out.split('\n')[0].split(' ')[1]);
+      // console.log(out)
       process.exit();
      });
     
