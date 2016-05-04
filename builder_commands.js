@@ -24,24 +24,32 @@ builder.packagedependencies = {
 }
 
 builder.baseinstallcommands = {
-	"jdk":"RUN sudo apt-get install openjdk-7-jdk\n",
+	"jdk":"RUN sudo apt-get install -y apt-file\nRUN sudo apt-file update\nRUN apt-file search -y add-apt-repository \nRUN sudo apt-get install -y software-properties-common\nRUN sudo add-apt-repository -y ppa:webupd8team/java\nRUN echo debconf shared/accepted-oracle-license-v1-1 select true | \
+  sudo debconf-set-selections\nRUN sudo apt-get update -y\nRUN sudo apt-get install oracle-java8-installer -y\n",
 	"node.js":"RUN sudo apt-get install -y nodejs\n",
 	"python":"RUN sudo apt-get install -y python2.7\nRUN sudo apt-get install -y python-dev\nRUN sudo apt-get install -y python-pip\n"
 }
 
 builder.packageinstallcommands = {
 	"npm":"RUN sudo apt-get install -y npm\nCOPY . /src\nRUN cd /src;sudo npm install\n",
-	"maven":"RUN wget http://www.eng.lsu.edu/mirrors/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.zip\nRUN unzip apache-maven-3.2.3-bin.zip\n",
+	"maven":"RUN sudo apt-get install -y maven\nCOPY . /src\n",
 	"pip_requirements":"COPY . /src\nRUN cd /src;pip install -r requirements.txt\n"
 }
 
+builder.languageindicator = {
+	".jar":"Java"
+}
+
 builder.secondaryinstallcommands = {
-	"Python":"RUN sudo apt-get install -y python2.7\nRUN sudo apt-get install -y python-dev\nRUN sudo apt-get install -y python-pip\n"
+	"Python":"RUN sudo apt-get install -y python2.7\nRUN sudo apt-get install -y python-dev\nRUN sudo apt-get install -y python-pip\n",
+	"Java":"RUN sudo apt-get install -y apt-file\nRUN sudo apt-file update\nRUN apt-file search -y add-apt-repository \nRUN sudo apt-get install -y software-properties-common\nRUN sudo add-apt-repository -y ppa:webupd8team/java\nRUN echo debconf shared/accepted-oracle-license-v1-1 select true | \
+  sudo debconf-set-selections\nRUN sudo apt-get update -y\nRUN sudo apt-get install oracle-java8-installer -y\n",
+	"JavaScript":"RUN sudo apt-get install -y nodejs\n"
 }
 
 builder.secondarypackageinstallcommands = {
 	"npm":"RUN cd /src;sudo npm install\n",
-	"maven":"RUN wget http://www.eng.lsu.edu/mirrors/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.zip\nRUN unzip apache-maven-3.2.3-bin.zip\n",
+	"maven":"RUN sudo apt-get install -y maven\n",
 	"pip_requirements":"RUN cd /src;pip install -r requirements.txt\n"
 }
 
