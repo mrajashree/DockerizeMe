@@ -2,6 +2,7 @@ var fs = require('fs');
 var pckgjson = require('./package.json');
 var child_process = require('child_process');
 var exec = require('child_process').exec;
+var endsWith = require('string.prototype.endswith');
 
 var builder_commands = require("./builder_commands.js");
 var builder = builder_commands.builder
@@ -12,6 +13,7 @@ fs.readFile('op.txt', 'utf8',function (err, data) {
   path_repo = data.trim().split(" ")[0];
   technology = data.trim().split(" ")[1];
   console.log("FROM ubuntu:14.04\n\nRUN sudo apt-get update\n")
+  console.log("RUN sudo apt-get install -y git\n")
   console.log(builder.baseinstallcommands[builder.basedependencies[technology]]);	//command(s) to install basedependency
 
 	//After installing basic python, node js. first check the dependency dictionary
@@ -27,7 +29,7 @@ fs.readFile('op.txt', 'utf8',function (err, data) {
 
 function populate(path_repo,technology) {
 
-	fs.exists('./'+path_repo+'/'+builder.packagedependencies[technology], function(exists) {	// in case of JS, package.json
+	fs.exists(path_repo+'/'+builder.packagedependencies[technology], function(exists) {	// in case of JS, package.json
 		if(exists) {
 			//console.log("Requirements met");
 			console.log(builder.packageinstallcommands[builder.packagemanager[technology]])
@@ -38,7 +40,8 @@ function populate(path_repo,technology) {
 					// console.log('./'+path_repo+'/'+builder.packagedependencies[language])
 					fs.exists('./'+path_repo+'/'+builder.packagedependencies[language], function(exists) {
 						if(exists) {
-							console.log(builder.secondarypackageinstallcommands[language])	
+							console.log(builder.secondaryinstallcommands[language])	
+							console.log(builder.secondarypackageinstallcommands[builder.packagemanager[language]])	
 						}
 					});
 				}
@@ -48,7 +51,25 @@ function populate(path_repo,technology) {
 		{
 			console.log("Package manager not found");
 		}
+		
 	});
+	var files = fs.readdirSync('./'+path_repo);
+	for(file_ind in files)
+	{
+		file = (files[file_ind])
+		for(var indicator in builder.languageindicator)
+		{
+			// console.log("file_type : "+typeof(file))
+			// console.log("indicator : "+indicator)
+			if(file.endsWith(indicator))
+			{
+				language = builder.languageindicator[indicator]
+				console.log(builder.secondaryinstallcommands[language])
+				console.log(builder.packageinstallcommands[builder.packagemanager[language]])
+			}
+		}
+
+	}
 }
 
 
