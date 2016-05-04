@@ -1,11 +1,9 @@
 <h1> DockerizeMe </h1>
 
-http://imgs.xkcd.com/comics/universal_install_script.png 
-
 Automatic creation of Docker image from Code repository.
 
 1. <b>Predict technology of the repository</b></br>
-    This is achieved by using the tool 'linguist'. In order to install linguist, run the script linguist_mac.sh for mac, linguist_ubuntu.sh for Linux and linguist_windows.sh for Windows.
+    This is achieved by using the tool 'linguist'. 
     The detect_technology.js     app takes as input the URL of the repository for which the Dockerfile is to be created. It clones the repo and runs          linguist command on it and outputs the technology used.
 
 2. <b>Populate the Dockerfile</b></br>
