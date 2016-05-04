@@ -21,6 +21,14 @@ Once the Dockerfile is created, it's upto the user to push it to the repository 
 Currently DockerizeMe only supports Python, Java and JavaScript languages. </br>
 The implementation steps and instructions on how to use DockerizeMe are given in https://github.com/alt-code/DockerizeMe/blob/master/README.md
 
+<h1> Results </h1>
+DockerizeMe has been tested on three repositories:
+1. DockerizeMe (On itself) </br>
+2. Wolf (https://github.com/rchakra3/wolf)
+3. Npm-check-updates (https://github.com/tjunnone/npm-check-updates)
+
+Docker containers created for these repos could successfully run these tools.
+
 <h1> Future Scope </h1>
 1. Automatic updation of dependency dictionary.
 2. Creating a selenium-like bot that can process README.md and install instructions and see if we can create installers from human instructions.
