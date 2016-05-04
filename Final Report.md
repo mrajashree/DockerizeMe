@@ -13,4 +13,16 @@ DockerizeMe attempts to make this porting process easier. We support</br>
 
 <h1> Process </h1>
 DockerizeMe starts off by accepting the URL of a github repository as an argument. It clones this repo and detects the technology used by this repo. We have used Linguist, a python variant of the tool used by Github for doing so. The language which is used the most is then selected as the base or primary language. </br>
-DockerizeMe then begins to populate the Dockerfile using the installation commands for the base language detected in the first step. It then checks if the repo contains the proper package management documentaion, meaning package.json in case of a JavaScript repo, or requirements.txt in case of a Python repo. If it exists then it populates the dockerfile with the commands for installing the package management tools if required, and then with the commands to actually install these dependencies.
+DockerizeMe then begins to populate the Dockerfile using the installation commands for the base language detected in the first step. It then checks if the repo contains the proper package management documentaion, meaning package.json in case of a JavaScript repo, or requirements.txt in case of a Python repo. If it exists then it populates the dockerfile with the commands for installing the package management tools if required, and then with the commands to actually install these dependencies. </br>
+There are certain dependencies, such as some platform dependencies for some packages that might not be a part of the requirements.txt or package.json files. However these dependencies need to be installed too. DockerizeMe attempts at storing such dependencies in a dictionary of dependencies. Every package listed is checked for an entry in the dependency dictionary. If found, those dependencies are installed. </br>
+Once the Dockerfile is created, it's upto the user to push it to the repository or save it for further use.
+
+<h1> Implementation </h1>
+Currently DockerizeMe only supports Python, Java and JavaScript languages. </br>
+The implementation steps and instructions on how to use DockerizeMe are given in https://github.com/alt-code/DockerizeMe/blob/master/README.md
+
+<h1> Future Scope </h1>
+1. Automatic updation of dependency dictionary.
+2. Creating a selenium-like bot that can process README.md and install instructions and see if we can create installers from human instructions.
+3. Establishing docker cross container communication
+4. Extending DockerizeMe for all languages.
