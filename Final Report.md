@@ -22,10 +22,10 @@ Currently DockerizeMe only supports Python, Java and JavaScript languages. </br>
 The implementation steps and instructions on how to use DockerizeMe are given in https://github.com/alt-code/DockerizeMe/blob/master/README.md
 
 <h1> Results </h1>
-DockerizeMe has been tested on three repositories:
+DockerizeMe has been tested on three repositories:</br>
 1. DockerizeMe (On itself) </br>
-2. Wolf (https://github.com/rchakra3/wolf)
-3. Npm-check-updates (https://github.com/tjunnone/npm-check-updates)
+2. Wolf (https://github.com/rchakra3/wolf) </br>
+3. Npm-check-updates (https://github.com/tjunnone/npm-check-updates) </br>
 
 Docker containers created for these repos could successfully run these tools.
 
