@@ -1,13 +1,13 @@
 <h1> DockerizeMe </h1>
 
-Automatic creation of Docker image from Code repository.
+Automatic creation of Docker image from code repository.
 
 1. <b>Predict technology of the repository</b></br>
-    This is achieved by using the tool 'linguist'. Instrucions on how to use Linguist can be found here: https://github.com/douban/linguist
-    The detect_technology.js     app takes as input the URL of the repository for which the Dockerfile is to be created. It clones the repo and runs          linguist command on it and outputs the technology used.
+    This is achieved by using the tool `linguist`. Instrucions on how to use Linguist can be found [here](https://github.com/douban/linguist). 
+    The `detect_technology.js` app takes as input the URL of the repository for which the Dockerfile is to be created. It clones the repo and runs linguist command on it and outputs the technology used.
 
 2. <b>Populate the Dockerfile</b></br>
-    The output of the detect_technology app, i.e. the technology predicted is then passed as input to the                        populate_dockerfile.js app, along with the name of the repo. The populate_dockerfile is printing out the          commands for installing base and source dependencies for the repo. All these commands are stored in the Dockerfile.
+    The output of the `detect_technology` app, i.e. the technology predicted is then passed as input to the             `populate_dockerfile.js` app, along with the name of the repo. The populate_dockerfile is printing out the          commands for installing base and source dependencies for the repo. All these commands are stored in the Dockerfile.
 
 3. <b>Creating Dockerfile</b></br>
     The script create_dockerfile.sh runs these files sequentially creating a Dockerfile
